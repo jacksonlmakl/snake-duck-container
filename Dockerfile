@@ -123,7 +123,6 @@ sleep 2\n\
 # Start frontend server\n\
 echo "Starting frontend server on port 3000..."\n\
 cd /app && npm run client & \n\
-bash bin/deploy
 FRONTEND_PID=$!\n\
 \n\
 # Monitor processes\n\
