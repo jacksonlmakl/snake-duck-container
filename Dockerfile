@@ -123,6 +123,7 @@ sleep 2\n\
 # Start frontend server\n\
 echo "Starting frontend server on port 3000..."\n\
 cd /app && npm run client & \n\
+bash bin/deploy
 FRONTEND_PID=$!\n\
 \n\
 # Monitor processes\n\
@@ -135,7 +136,6 @@ echo "Access frontend UI at: http://localhost:3000"\n\
 # Trap SIGTERM and SIGINT\n\
 trap '"'"'kill -TERM $BACKEND_PID $FRONTEND_PID; exit'"'"' TERM INT\n\
 \n\
-bash bin/deploy
 # Wait for either process to exit\n\
 wait $BACKEND_PID $FRONTEND_PID\n' > /app/start.sh && \
     chmod +x /app/start.sh
